@@ -41,8 +41,8 @@ jobs:
   public: true
   plan:
   - do:
-     - get: pipeline-scripts
-       trigger: false
+    - get: pipeline-scripts
+      trigger: false
 #    - get: monthly-trigger
 #      trigger: true
     - task: prep-notification-email-text
