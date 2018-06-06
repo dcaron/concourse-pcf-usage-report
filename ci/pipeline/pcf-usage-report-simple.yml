@@ -41,10 +41,10 @@ jobs:
   public: true
   plan:
   - do:
-    - get: pipeline-scripts
-      trigger: false
-    # - get: monthly-trigger
-    #   trigger: true
+    # - get: pipeline-scripts
+    #   trigger: false
+    - get: monthly-trigger
+      trigger: true
     - task: prep-notification-email-text
       file: pipeline-scripts/ci/tasks/prepare-email.yml
       params:
