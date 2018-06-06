@@ -28,11 +28,11 @@ resources:
   type: email
   source:
     from: {{email-from}}
-- name: monthly-trigger
-  type: cron-resource
-  source:
-    location: "Europe/Amsterdam"
-    expression: "0 6 1 * *"
+#- name: monthly-trigger
+#  type: cron-resource
+#  source:
+#    location: "Europe/Amsterdam"
+#    expression: "0 6 1 * *"
     # trigger on the first day of each month at 6:00am ET
 
 jobs:
@@ -41,10 +41,10 @@ jobs:
   public: true
   plan:
   - do:
-    # - get: pipeline-scripts
-    #   trigger: false
-    - get: monthly-trigger
-      trigger: true
+     - get: pipeline-scripts
+       trigger: false
+#    - get: monthly-trigger
+#      trigger: true
     - task: prep-notification-email-text
       file: pipeline-scripts/ci/tasks/prepare-email.yml
       params:
